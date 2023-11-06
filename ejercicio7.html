@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joffre Cassola - Ejercicio 7 </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        html,body{
+            height: 100%;
+            background: linear-gradient(rgb(35, 36, 36), rgb(8, 29, 48));
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+
+    </style>
+    	<style type="text/css">
+            .submenu {
+                display: none;
+            }
+            .opacity {
+                opacity: 0.5;
+            }
+            li{
+                list-style: none;
+            }
+            a:hover{
+                color: chartreuse;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" >
+            <div class="col-md-12 text-center">
+                <a href="index.html">Menú principal</a>
+            </div>   
+            
+            <div class="col-md-12 text-center">
+                <ul>
+                    <li class="subtitle">
+                        <a href="#" class="action">Inicio</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#">Opción 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Opción 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Opción 3</a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li class="subtitle">
+                        <a href="#" class="action">Servicios</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#">Opción 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Opción 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Opción 3</a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li class="subtitle">
+                        <a href="#" class="action">Portafolio</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#">Opción 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Opción 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Opción 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="subtitle">
+                        <a href="#" class="action">Sucursales</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#">Opción 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Opción 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Opción 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script>
+        $(".subtitle .action").click(function(event){
+        var subtitle = $(this).parents(".subtitle");
+        var submenu = $(subtitle).find(".submenu");
+        
+        $(".submenu").not($(submenu)).slideUp("slow").removeClass("opacity");
+        $(".open").not($(subtitle)).removeClass("open");
+
+        $(subtitle).toggleClass("open");
+        $(submenu).slideToggle("slow").toggleClass("opacity");
+
+        return false;
+        });
+    </script>
+</body>
+</html>

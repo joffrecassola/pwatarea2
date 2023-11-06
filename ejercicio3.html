@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joffre Cassola -  Ejercicio 3 </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        html,body{
+            height: 100%;
+            background: linear-gradient(rgb(35, 36, 36), rgb(8, 29, 48));
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .transparent-container {
+            background-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a href="index.html">Menú principal</a>
+            </div>
+            <div id="image-container">
+                <img src="image1.jpg" alt="Imagen 1" id="main-image">
+            </div>
+        </div>
+    </div>
+    <script>
+        const mainImage = document.getElementById('main-image');
+
+        mainImage.addEventListener('mouseenter', function() {
+            mainImage.src = 'image2.jpg'; 
+        });
+
+        mainImage.addEventListener('mouseleave', function() {
+            mainImage.src = 'image1.jpg'; 
+        });
+    </script>
+</body>
+</html>

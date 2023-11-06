@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joffre Cassola - Ejercicio 10 </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        html,body{
+            height: 100%;
+            background: linear-gradient(rgb(35, 36, 36), rgb(8, 29, 48));
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+
+    </style>
+    	<style type="text/css">
+            .submenu {
+                display: none;
+            }
+            .opacity {
+                opacity: 0.5;
+            }
+            li{
+                
+                list-style: none;
+            }            
+            li:hover{
+                color: rgb(30, 117, 13);
+                cursor: pointer;
+                list-style: none;
+            }
+            body{
+                color:aliceblue ;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" >
+            <div class="col-md-12 text-center">
+                <a href="index.html">Menú principal</a>
+            </div> 
+            <div class="col-md-12 text-center">
+                <h1>Preguntas y Respuestas</h1>
+                <div id="question-container">
+                    <p id="question"></p>
+                    <ul id="options"></ul>
+                </div>
+                <button id="nextButton">Siguiente</button>
+                <p id="score"></p>
+            </div>              
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: '¿Cuál es la capital de Ecuador?',
+                options: ['Vía la costa', 'Guayaquil', 'Quito'],
+                correctAnswer: 'Quito'
+            },
+            {
+                question: '¿Cual es la comida tipo sopa popular en guayaquil?',
+                options: ['Chupe de pescado', 'Cazuela con canguil', 'Encebollado'],
+                correctAnswer: 'Encebollado'
+            },
+            {
+                question: 'Que se celebra el 31 de Octubre"?',
+                options: ['Haloween', 'Día del Escudo', 'Día de la bandera'],
+                correctAnswer: 'Día del Escudo'
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionContainer = document.getElementById('question-container');
+        const questionText = document.getElementById('question');
+        const optionsList = document.getElementById('options');
+        const nextButton = document.getElementById('nextButton');
+        const scoreText = document.getElementById('score');
+
+        function showQuestion(index) {
+            const currentQuestion = questions[index];
+            questionText.textContent = currentQuestion.question;
+            optionsList.innerHTML = '';
+
+            currentQuestion.options.forEach((option, optionIndex) => {
+                const li = document.createElement('li');
+                li.textContent = option;
+                li.addEventListener('click', function() {
+                    checkAnswer(option, currentQuestion.correctAnswer);
+                });
+                optionsList.appendChild(li);
+            });
+        }
+
+        function checkAnswer(selectedOption, correctAnswer) {
+            if (selectedOption === correctAnswer) {
+                score++;
+            }
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                showQuestion(currentQuestionIndex);
+            } else {
+                showScore();
+            }
+        }
+
+        function showScore() {
+            questionContainer.style.display = 'none';
+            nextButton.style.display = 'none';
+            scoreText.textContent = `Puntuación final: ${score} de ${questions.length}`;
+        }
+
+        showQuestion(currentQuestionIndex);
+    </script>
+</body>
+</html>

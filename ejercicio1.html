@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joffre Cassola - Ejercicio 1</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        html,body{
+            height: 100%;
+            background: linear-gradient(rgb(35, 36, 36), rgb(8, 29, 48));
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="col-md-12 text-center">
+        <a href="index.html">Menú principal</a>
+    </div>
+    <div class="col-md-12 text-center" style="padding: 100px;">
+        <button id="changeColorButton">¡Presioname !</button>
+    </div>
+
+    <script>
+        document.getElementById('changeColorButton').onclick = function() {
+            var red = Math.floor(Math.random() * 256);
+            var green = Math.floor(Math.random() * 256);
+            var blue = Math.floor(Math.random() * 256);
+            var randomColor = 'rgb(' + red + ',' + green + ',' + blue +')';
+            
+            var red2 = Math.floor(Math.random() * 256);
+            var green2 = Math.floor(Math.random() * 256);
+            var blue2 = Math.floor(Math.random() * 256);
+            var randomColor2 = 'rgb(' + red2 + ',' + green2 + ',' + blue2 + ')';
+            
+            var color1 = randomColor;
+            var color2 = randomColor2;
+            
+            var htmlDocument = document.body;
+            htmlDocument.style.background = `linear-gradient(to bottom, ${color1}, ${color2})`;
+            
+            htmlDocument.style.transition = 'background 0.5s';
+            htmlDocument.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.2)';
+            htmlDocument.style.padding = '20px';
+        };
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
